@@ -1,0 +1,17 @@
+<h1 class="text-center mt-4 fs-1 text-dark">Personajes</h1>
+<mat-form-field [formGroup]='formPersonajes'>
+            <mat-label mat-label>Seleccione Casa:</mat-label>
+            <mat-select formControlName="casa" 
+                        (selectionChange)="filtro(formPersonajes.value.casa)"
+            >
+                <mat-option *ngFor="let casa of House" [value]='casa'>{{ casa }}</mat-option>
+            </mat-select>
+</mat-form-field>
+
+
+<mat-divider></mat-divider>
+
+<app-listado [personajes]="casaSeleccionada"></app-listado>
+
+
+

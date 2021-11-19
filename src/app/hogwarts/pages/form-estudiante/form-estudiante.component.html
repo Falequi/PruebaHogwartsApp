@@ -1,0 +1,117 @@
+<h1 class="text-center mt-4 fs-1 text-dark">Nuevo Estudiante</h1>
+
+<div class="container mt-2">
+  <form
+      [formGroup]="formNuevosEstudiantes"
+      (ngSubmit)="guardar()"
+    >
+  <!-- Nombre -->
+    <div class="row">
+      <label
+        class="form-label "
+        for="nombre"
+      >
+        Nombre*:
+      </label>
+      <input 
+        class="bg-dark form-control rounded-pill text-secondary"
+        id="nombre"
+        formControlName="name"
+        placeholder="Digite su Nombre"
+      >
+
+      <span 
+        *ngIf="isValid('name')"
+        id="user-create__name-error"
+        class="text-danger"
+      >
+        {{ user_name_error }}
+      </span>
+    </div>
+    <!-- Fin Nombre -->
+
+    <!-- Patronus -->
+    <div class="row mt-2">
+      <label
+      class="form-label"
+      for="patronus"
+      >
+        Patronus*:
+      </label>
+      <select 
+        formControlName="patronus" 
+        id="patronus"
+        class="bg-dark form-select text-secondary rounded-pill"
+      >
+        <option value="">-- Seleccione Patronus -- </option>
+        <option *ngFor="let patron of patronus">{{ patron }} </option>
+      </select>
+
+      <span 
+      *ngIf="isValid('patronus')"
+      id="user-create__name-error"
+      class="text-danger"
+    >
+      {{ user_patronus_error }}
+    </span>
+    </div>
+    <!-- Fin Patronus -->
+
+    <!-- YearOfBirth -->
+    <div class="row mt-2">
+      <label
+        class="form-label rounded-pill"
+        for="year"
+      >
+        Año*:
+      </label>
+      <input 
+        class="bg-dark form-control rounded-pill text-secondary"
+        id="year"
+        formControlName="yearOfBirth"
+        placeholder="Digite Año Nacimiento"
+      >
+      <span 
+      *ngIf="isValid('yearOfBirth')"
+      id="user-create__name-error"
+      class="text-danger"
+    >
+      {{ user_yearOfBirth_error }}
+    </span>
+    </div>
+    <!-- Fin YearOfBirth -->
+    
+    <!-- Imagen -->
+    <div class="row mt-2">
+      <label
+        class="form-label"
+        for="imagen"
+      >
+        URl Imagen:
+      </label>
+      <input 
+        class=" bg-dark form-control rounded-pill text-secondary"
+        id="imagen"
+        formControlName="image"
+        placeholder="Digite la url de la imagen"
+      >
+    </div>
+    <!-- Fin Imagen -->
+
+    <div class="row mt-4 rounded-pill">
+      <button 
+        class="btn btn-success"
+        type="submit"
+      >
+        Guardar
+      </button>
+      <span 
+      *ngIf="errorSave"
+      id="user-create__name-error"
+      class="text-danger mt-2"
+    >
+      {{mesageErrorSave}}
+    </span>
+    </div>
+  </form >
+</div>

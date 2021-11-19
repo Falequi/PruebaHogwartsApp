@@ -1,0 +1,30 @@
+<mat-divider></mat-divider>
+
+<div fxLayout="row wrap" 
+     fxLayout.xs="column" 
+     fxLayoutAlign="center"
+     fxLayoutGap="30px"
+     >
+    <div fxFlex="25rem" 
+         fxFlex.lg="30"   
+         fxFlex.sm="30" 
+         *ngFor="let personaje of personajes"
+    >
+
+      <mat-card *ngIf="personaje">
+        <mat-card-title-group>
+          <mat-card-title>{{ personaje.name }}</mat-card-title>
+          <mat-card-subtitle>
+            {{ personaje.patronus }}
+            <br>
+            {{ personaje.yearOfBirth }}
+          </mat-card-subtitle>
+          <img mat-card-xl-image [src]=" personaje.image  | imagen" >
+        </mat-card-title-group>
+        <mat-card-content>
+          
+        </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
